@@ -1,4 +1,4 @@
-v# Flag
+# Flag
 使用 Shenandoah GC 和一些性能优化功能的MC服务器启动参数
 
 #### 参考文档: 
@@ -18,7 +18,7 @@ v# Flag
 ### 成品/说明和草稿
 
 最后更新时间: `2023年1月28日`  
-! 这个参数可能会多占用1G内存, 我没测试, 你可以试试多保留1G.  
+! 我没测试, 或许你需要少分配1G内存.  
 ```
 -server -Xms16G -Xmx16G -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+AlwaysPreTouch -XX:+UseLargePages -XX:LargePageSizeInBytes=4M -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -XX:+UseNUMA -XX:ReservedCodeCacheSize=400M -XX:NonNMethodCodeHeapSize=12M -XX:ProfiledCodeHeapSize=194M -XX:NonProfiledCodeHeapSize=194M -XX:NmethodSweepActivity=1 -XX:+UseCriticalJavaThreadPriority -XX:ThreadPriorityPolicy=1 -XX:MaxInlineSize=420 -XX:+SegmentedCodeCache -XX:-DontCompileHugeMethods -XX:+UseFastUnorderedTimeStamps -XX:UseAVX=3 -XX:+UseFMA -XX:+UseSSE42Intrinsics -XX:+UseXmmI2D -XX:+UseXmmI2F -XX:+UseVectorCmov -XX:+UseNewLongLShift -XX:+UseFastStosb --add-modules=jdk.incubator.vector -DPurpur.IReallyDontWantSpark=true -Dlog4j2.formatMsgNoLookups=true -jar
 ```
