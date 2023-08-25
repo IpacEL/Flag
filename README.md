@@ -2,28 +2,28 @@
 使用 Shenandoah GC 和一些性能优化功能的MC服务器启动参数
 
 #### 参考文档: 
-> https://wiki.openjdk.org/display/shenandoah/Main
-> 2019.12基准报告: https://ionutbalosin.com/2019/12/jvm-garbage-collectors-benchmarks-report-19-12/
-> 2020.1性能调优指南: https://ionutbalosin.com/2020/01/hotspot-jvm-performance-tuning-guidelines/
-> 搜索引擎, 以及各种文章: https://cn.bing.com/
+> https://wiki.openjdk.org/display/shenandoah/Main  
+> 2019.12基准报告: https://ionutbalosin.com/2019/12/jvm-garbage-collectors-benchmarks-report-19-12/  
+> 2020.1性能调优指南: https://ionutbalosin.com/2020/01/hotspot-jvm-performance-tuning-guidelines/  
+> 搜索引擎, 以及各种文章: https://cn.bing.com/  
 
 #### 参考实例: 
-> SGC: https://github.com/hilltty/hilltty-flags
-> aikar-G1GC: https://aikar.co/mcflags.html
-> etil-G1GC-new: https://github.com/etil2jz/etil-minecraft-flags
-> VeroFess-ZGC: https://blog.binklac.com/e6ad4dc21152/
-> GraalVM-G1GC: https://github.com/brucethemoose/Minecraft-Performance-Flags-Benchmarks
+> SGC: https://github.com/hilltty/hilltty-flags  
+> aikar-G1GC: https://aikar.co/mcflags.html  
+> etil-G1GC-new: https://github.com/etil2jz/etil-minecraft-flags  
+> VeroFess-ZGC: https://blog.binklac.com/e6ad4dc21152/  
+> GraalVM-G1GC: https://github.com/brucethemoose/Minecraft-Performance-Flags-Benchmarks  
 
 ---
 ### 成品/说明和草稿
 
-最后更新时间: `2023年1月28日`
-! 这个参数可能会多占用1G内存, 我没测试, 你可以试试多保留1G. 
+最后更新时间: `2023年1月28日`  
+! 这个参数可能会多占用1G内存, 我没测试, 你可以试试多保留1G.  
 ```
 -server -Xms16G -Xmx16G -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -XX:+UseNUMA -XX:ReservedCodeCacheSize=512M -XX:NonNMethodCodeHeapSize=16M -XX:NonProfiledCodeHeapSize=194M -XX:NmethodSweepActivity=1 -XX:+UseCriticalJavaThreadPriority -XX:MaxInlineSize=256 -XX:+SegmentedCodeCache -XX:-DontCompileHugeMethods -XX:+OmitStackTraceInFastThrow -XX:ThreadPriorityPolicy=1 -XX:+TrustFinalNonStaticFields -XX:+UseFastUnorderedTimeStamps -XX:+AllowParallelDefineClass -XX:UseAVX=3 -XX:+UseFMA -XX:+UseSSE42Intrinsics -XX:+UseXmmI2D -XX:+UseXmmI2F -XX:+UseVectorCmov -XX:+UseNewLongLShift -XX:+UseFastStosb -Dlog4j2.formatMsgNoLookups=true --add-modules=jdk.incubator.vector -jar
 ```
 
-尝试在客户端使用
+尝试在客户端使用  
 ```
 -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -XX:+UseNUMA -XX:MaxInlineSize=256 -XX:+SegmentedCodeCache -XX:-DontCompileHugeMethods -XX:+OmitStackTraceInFastThrow -XX:ThreadPriorityPolicy=1 -XX:+TrustFinalNonStaticFields -XX:+UseFastUnorderedTimeStamps -XX:+AllowParallelDefineClass -XX:UseAVX=3 -XX:+UseFMA -XX:+UseSSE42Intrinsics -XX:+UseXmmI2D -XX:+UseXmmI2F -XX:+UseVectorCmov -XX:+UseNewLongLShift -XX:+UseFastStosb --add-modules=jdk.incubator.vector
 ```
@@ -91,8 +91,11 @@
 # jconsole
 -Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote.port=2777 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.profiles.active=ci
 
+# 原版服务端
+-nogui	# 关闭GUI
+
 # spigot
---nogui	# 关闭GUI
 --world-dir <worlds>	# 将地图放进单独的目录
 --forceUpgrade	# 升级所有区块到当前版本
 ```
+
