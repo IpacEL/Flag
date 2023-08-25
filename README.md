@@ -92,8 +92,10 @@
 # jconsole
 #-Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote.port=2777 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.profiles.active=ci
 
-# spigot
+# 原版服务端
 -nogui	# 关闭GUI
+
+# spigot
 -forceUpgrade	# 升级所有区块到当前版本
 --world-dir <worlds>	# 将地图放进单独的目录
 
