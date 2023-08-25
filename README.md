@@ -18,7 +18,6 @@
 ### 成品/说明和草稿
 
 最后更新时间: `2023年1月28日`  
-! 这个参数可能会多占用1G内存, 我没测试, 你可以试试多保留1G.  
 ```
 -server -Xms16G -Xmx16G -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -XX:+UseNUMA -XX:ReservedCodeCacheSize=512M -XX:NonNMethodCodeHeapSize=16M -XX:NonProfiledCodeHeapSize=194M -XX:NmethodSweepActivity=1 -XX:+UseCriticalJavaThreadPriority -XX:MaxInlineSize=256 -XX:+SegmentedCodeCache -XX:-DontCompileHugeMethods -XX:+OmitStackTraceInFastThrow -XX:ThreadPriorityPolicy=1 -XX:+TrustFinalNonStaticFields -XX:+UseFastUnorderedTimeStamps -XX:+AllowParallelDefineClass -XX:UseAVX=3 -XX:+UseFMA -XX:+UseSSE42Intrinsics -XX:+UseXmmI2D -XX:+UseXmmI2F -XX:+UseVectorCmov -XX:+UseNewLongLShift -XX:+UseFastStosb -Dlog4j2.formatMsgNoLookups=true --add-modules=jdk.incubator.vector -jar
 ```
